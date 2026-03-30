@@ -1,0 +1,210 @@
+[
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python script that prints numbers from 1 to 100, one per line. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "c144eedd18a9c0c2d6e8a343098c3dd515ed51406f8aa177d12c4b18d718aa01",
+      "c144eedd18a9c0c2d6e8a343098c3dd515ed51406f8aa177d12c4b18d718aa01",
+      "c144eedd18a9c0c2d6e8a343098c3dd515ed51406f8aa177d12c4b18d718aa01",
+      "c144eedd18a9c0c2d6e8a343098c3dd515ed51406f8aa177d12c4b18d718aa01",
+      "c144eedd18a9c0c2d6e8a343098c3dd515ed51406f8aa177d12c4b18d718aa01"
+    ],
+    "code_hashes": [
+      "d5d14db0eb570b0189f9a04afe30df1fff0e9abb5775e2ff6715ff7d406e432d",
+      "d5d14db0eb570b0189f9a04afe30df1fff0e9abb5775e2ff6715ff7d406e432d",
+      "d5d14db0eb570b0189f9a04afe30df1fff0e9abb5775e2ff6715ff7d406e432d",
+      "d5d14db0eb570b0189f9a04afe30df1fff0e9abb5775e2ff6715ff7d406e432d",
+      "d5d14db0eb570b0189f9a04afe30df1fff0e9abb5775e2ff6715ff7d406e432d"
+    ],
+    "best_sha256": "c144eedd18a9c0c2d6e8a343098c3dd515ed51406f8aa177d12c4b18d718aa01",
+    "best_sha256_code": "d5d14db0eb570b0189f9a04afe30df1fff0e9abb5775e2ff6715ff7d406e432d",
+    "label": "T1_trivial_loop"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python function that returns the first 20 Fibonacci numbers as a list, then prints them. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "036e3436fe4f581ac81c46e4705bba733809cc3f8f530930667294b3082f465e",
+      "036e3436fe4f581ac81c46e4705bba733809cc3f8f530930667294b3082f465e",
+      "036e3436fe4f581ac81c46e4705bba733809cc3f8f530930667294b3082f465e",
+      "036e3436fe4f581ac81c46e4705bba733809cc3f8f530930667294b3082f465e",
+      "036e3436fe4f581ac81c46e4705bba733809cc3f8f530930667294b3082f465e"
+    ],
+    "code_hashes": [
+      "2ed0ce775e9b96e39dc0e5f3067ed2504648a29a5666ffce4eb2dbee6a22c12e",
+      "2ed0ce775e9b96e39dc0e5f3067ed2504648a29a5666ffce4eb2dbee6a22c12e",
+      "2ed0ce775e9b96e39dc0e5f3067ed2504648a29a5666ffce4eb2dbee6a22c12e",
+      "2ed0ce775e9b96e39dc0e5f3067ed2504648a29a5666ffce4eb2dbee6a22c12e",
+      "2ed0ce775e9b96e39dc0e5f3067ed2504648a29a5666ffce4eb2dbee6a22c12e"
+    ],
+    "best_sha256": "036e3436fe4f581ac81c46e4705bba733809cc3f8f530930667294b3082f465e",
+    "best_sha256_code": "2ed0ce775e9b96e39dc0e5f3067ed2504648a29a5666ffce4eb2dbee6a22c12e",
+    "label": "T2_fibonacci"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python script implementing Caesar cipher with shift=13 (ROT13). Include encrypt and decrypt functions. Test with the string 'Hello World'. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "a75434c3cb909d30e7d130c2e3d91bf3e1fb55ba0bb3e1fb62bf1ea4dfda845b",
+      "a75434c3cb909d30e7d130c2e3d91bf3e1fb55ba0bb3e1fb62bf1ea4dfda845b",
+      "a75434c3cb909d30e7d130c2e3d91bf3e1fb55ba0bb3e1fb62bf1ea4dfda845b",
+      "a75434c3cb909d30e7d130c2e3d91bf3e1fb55ba0bb3e1fb62bf1ea4dfda845b",
+      "a75434c3cb909d30e7d130c2e3d91bf3e1fb55ba0bb3e1fb62bf1ea4dfda845b"
+    ],
+    "code_hashes": [
+      "b50d921d64dc3dbc1129ca9bdb9a437079e687954eab637ddcf6a483ea1b9867",
+      "b50d921d64dc3dbc1129ca9bdb9a437079e687954eab637ddcf6a483ea1b9867",
+      "b50d921d64dc3dbc1129ca9bdb9a437079e687954eab637ddcf6a483ea1b9867",
+      "b50d921d64dc3dbc1129ca9bdb9a437079e687954eab637ddcf6a483ea1b9867",
+      "b50d921d64dc3dbc1129ca9bdb9a437079e687954eab637ddcf6a483ea1b9867"
+    ],
+    "best_sha256": "a75434c3cb909d30e7d130c2e3d91bf3e1fb55ba0bb3e1fb62bf1ea4dfda845b",
+    "best_sha256_code": "b50d921d64dc3dbc1129ca9bdb9a437079e687954eab637ddcf6a483ea1b9867",
+    "label": "T3_caesar_cipher"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python implementation of merge sort. Include a test with the list [5, 2, 8, 1, 9, 3]. Print the sorted result. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "c379e441d9eeb648abc3a235d6d7d63d1316148553a6546e62d5527155f5cb31",
+      "c379e441d9eeb648abc3a235d6d7d63d1316148553a6546e62d5527155f5cb31",
+      "c379e441d9eeb648abc3a235d6d7d63d1316148553a6546e62d5527155f5cb31",
+      "c379e441d9eeb648abc3a235d6d7d63d1316148553a6546e62d5527155f5cb31",
+      "c379e441d9eeb648abc3a235d6d7d63d1316148553a6546e62d5527155f5cb31"
+    ],
+    "code_hashes": [
+      "4bcda6eaa8266add3cbae8a4422719a2104e6a091bba3f21da46a10c118fca6d",
+      "4bcda6eaa8266add3cbae8a4422719a2104e6a091bba3f21da46a10c118fca6d",
+      "4bcda6eaa8266add3cbae8a4422719a2104e6a091bba3f21da46a10c118fca6d",
+      "4bcda6eaa8266add3cbae8a4422719a2104e6a091bba3f21da46a10c118fca6d",
+      "4bcda6eaa8266add3cbae8a4422719a2104e6a091bba3f21da46a10c118fca6d"
+    ],
+    "best_sha256": "c379e441d9eeb648abc3a235d6d7d63d1316148553a6546e62d5527155f5cb31",
+    "best_sha256_code": "4bcda6eaa8266add3cbae8a4422719a2104e6a091bba3f21da46a10c118fca6d",
+    "label": "T4_sorting_algo"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python class 'BankAccount' with methods: deposit(amount), withdraw(amount), balance(). Constructor takes owner name and initial balance=0. Add a __str__ method. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "eac0b235d9fcf3b9ba34be0fc983bc31631cbdaa3960be5d55f9538793d2d32f",
+      "eac0b235d9fcf3b9ba34be0fc983bc31631cbdaa3960be5d55f9538793d2d32f",
+      "eac0b235d9fcf3b9ba34be0fc983bc31631cbdaa3960be5d55f9538793d2d32f",
+      "eac0b235d9fcf3b9ba34be0fc983bc31631cbdaa3960be5d55f9538793d2d32f",
+      "eac0b235d9fcf3b9ba34be0fc983bc31631cbdaa3960be5d55f9538793d2d32f"
+    ],
+    "code_hashes": [
+      "170787fdbfd5c0995ed14c66572063970164cadb64e07c973bbccfe85319ced0",
+      "170787fdbfd5c0995ed14c66572063970164cadb64e07c973bbccfe85319ced0",
+      "170787fdbfd5c0995ed14c66572063970164cadb64e07c973bbccfe85319ced0",
+      "170787fdbfd5c0995ed14c66572063970164cadb64e07c973bbccfe85319ced0",
+      "170787fdbfd5c0995ed14c66572063970164cadb64e07c973bbccfe85319ced0"
+    ],
+    "best_sha256": "eac0b235d9fcf3b9ba34be0fc983bc31631cbdaa3960be5d55f9538793d2d32f",
+    "best_sha256_code": "170787fdbfd5c0995ed14c66572063970164cadb64e07c973bbccfe85319ced0",
+    "label": "T5_class_design"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python script that uses regex to extract all email addresses from this text: 'Contact us at admin@example.com or support@test.org for help. Invalid: not-an-email'. Print each email on a line. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "4f8923f3de93f734a1de36be3799396c3ca95e3ee7fc1db927d686f9d857635e",
+      "4f8923f3de93f734a1de36be3799396c3ca95e3ee7fc1db927d686f9d857635e",
+      "4f8923f3de93f734a1de36be3799396c3ca95e3ee7fc1db927d686f9d857635e",
+      "4f8923f3de93f734a1de36be3799396c3ca95e3ee7fc1db927d686f9d857635e",
+      "4f8923f3de93f734a1de36be3799396c3ca95e3ee7fc1db927d686f9d857635e"
+    ],
+    "code_hashes": [
+      "a3c7c911ba46cdde062633330bf9b68e89eb64e9eda5dd368a0a37941d0b7758",
+      "a3c7c911ba46cdde062633330bf9b68e89eb64e9eda5dd368a0a37941d0b7758",
+      "a3c7c911ba46cdde062633330bf9b68e89eb64e9eda5dd368a0a37941d0b7758",
+      "a3c7c911ba46cdde062633330bf9b68e89eb64e9eda5dd368a0a37941d0b7758",
+      "a3c7c911ba46cdde062633330bf9b68e89eb64e9eda5dd368a0a37941d0b7758"
+    ],
+    "best_sha256": "4f8923f3de93f734a1de36be3799396c3ca95e3ee7fc1db927d686f9d857635e",
+    "best_sha256_code": "a3c7c911ba46cdde062633330bf9b68e89eb64e9eda5dd368a0a37941d0b7758",
+    "label": "T6_regex_parser"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python script that fetches the JSON from https://jsonplaceholder.typicode.com/todos/1 using the requests library and prints the title field. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "3257ccce14b30a01e038d2c15a8fc57091a8f61f473226002948dea80816029c",
+      "3257ccce14b30a01e038d2c15a8fc57091a8f61f473226002948dea80816029c",
+      "3257ccce14b30a01e038d2c15a8fc57091a8f61f473226002948dea80816029c",
+      "3257ccce14b30a01e038d2c15a8fc57091a8f61f473226002948dea80816029c",
+      "3257ccce14b30a01e038d2c15a8fc57091a8f61f473226002948dea80816029c"
+    ],
+    "code_hashes": [
+      "4df9b43f41d40cffea54ab7273f23a47513d061dcd3a0cb196d229f992802dbc",
+      "4df9b43f41d40cffea54ab7273f23a47513d061dcd3a0cb196d229f992802dbc",
+      "4df9b43f41d40cffea54ab7273f23a47513d061dcd3a0cb196d229f992802dbc",
+      "4df9b43f41d40cffea54ab7273f23a47513d061dcd3a0cb196d229f992802dbc",
+      "4df9b43f41d40cffea54ab7273f23a47513d061dcd3a0cb196d229f992802dbc"
+    ],
+    "best_sha256": "3257ccce14b30a01e038d2c15a8fc57091a8f61f473226002948dea80816029c",
+    "best_sha256_code": "4df9b43f41d40cffea54ab7273f23a47513d061dcd3a0cb196d229f992802dbc",
+    "label": "T7_api_client"
+  },
+  {
+    "model": "mistral:7b",
+    "runs": 5,
+    "prompt": "Write a Python implementation of Conway's Game of Life for a 10x10 grid. Initialize with a glider pattern. Run 5 steps and print each grid state. No explanation. Only code.",
+    "unique_raw_hashes": 1,
+    "unique_code_hashes": 1,
+    "raw_deterministic": true,
+    "code_deterministic": true,
+    "raw_hashes": [
+      "24cf159bbadcd479c2bb446d0e1e9ecbcc50f4265a4005787c9746753ed7d2e8",
+      "24cf159bbadcd479c2bb446d0e1e9ecbcc50f4265a4005787c9746753ed7d2e8",
+      "24cf159bbadcd479c2bb446d0e1e9ecbcc50f4265a4005787c9746753ed7d2e8",
+      "24cf159bbadcd479c2bb446d0e1e9ecbcc50f4265a4005787c9746753ed7d2e8",
+      "24cf159bbadcd479c2bb446d0e1e9ecbcc50f4265a4005787c9746753ed7d2e8"
+    ],
+    "code_hashes": [
+      "8bd230483f5e657f75dce1d536efe8226a9129830501044e43080b047d7badcb",
+      "8bd230483f5e657f75dce1d536efe8226a9129830501044e43080b047d7badcb",
+      "8bd230483f5e657f75dce1d536efe8226a9129830501044e43080b047d7badcb",
+      "8bd230483f5e657f75dce1d536efe8226a9129830501044e43080b047d7badcb",
+      "8bd230483f5e657f75dce1d536efe8226a9129830501044e43080b047d7badcb"
+    ],
+    "best_sha256": "24cf159bbadcd479c2bb446d0e1e9ecbcc50f4265a4005787c9746753ed7d2e8",
+    "best_sha256_code": "8bd230483f5e657f75dce1d536efe8226a9129830501044e43080b047d7badcb",
+    "label": "T8_game_of_life"
+  }
+]

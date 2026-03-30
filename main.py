@@ -23,8 +23,8 @@ def load_config() -> dict:
     # Fallback: env vars or hardcoded
     return {
         "api_token_file": "cloudflareapi.txt",
-        "zone_id": "",
-        "domain": "yourdomain",
+        "zone_id": "cd6413f95774b23096f366dee3542df8",
+        "domain": "nikodindon.dpdns.org",
         "default_model": "mistral:7b",
         "ollama_url": "http://localhost:11434/api/generate",
     }
