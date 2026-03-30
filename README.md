@@ -33,7 +33,7 @@ Like Adam I'm using llms (local , claude , gpt , grok) for this project, I love 
 
 ### DNS as a storage medium
 
-DNS was never designed to store files. A Cloudflare zone caps out around 500–600 KB of TXT records. That's roughly the size of a GameBoy ROM, which is exactly where this project started (yes, you can store *Super Mario Land* in DNS records using base64-encoded, zlib-compressed chunks).
+DNS was never designed to store files. A Cloudflare zone caps out around 300-500 KB of TXT records. That's roughly the size of a big GameBoy ROM like Legend of Zelda, The - Link's Awakening for example, which is exactly where this project started (yes, you can store *Super Mario Land* in DNS records using base64-encoded, zlib-compressed chunks).
 
 The obvious move: compression + base64 + chunking. It works. But you still hit a ceiling. And that ceiling is the interesting constraint.
 
