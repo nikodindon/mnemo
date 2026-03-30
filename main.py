@@ -23,16 +23,16 @@ def load_config() -> dict:
     # Fallback: env vars or hardcoded
     return {
         "api_token_file": "cloudflareapi.txt",
-        "zone_id": "cd6413f95774b23096f366dee3542df8",
-        "domain": "nikodindon.dpdns.org",
+        "zone_id": "",
+        "domain": "yourdomain",
         "default_model": "mistral:7b",
         "ollama_url": "http://localhost:11434/api/generate",
     }
 
-def build_services(cfg: dict):
+def build_services(cfg: dict, timeout: int = None):
     token = open(cfg["api_token_file"]).read().strip()
     dns = DNSStorage(token, cfg["zone_id"], cfg["domain"])
-    llm = LLMRunner(model=cfg["default_model"], ollama_url=cfg["ollama_url"])
+    llm = LLMRunner(model=cfg["default_model"], ollama_url=cfg["ollama_url"], timeout=timeout)
     pipe = Pipeline(dns, llm)
     return dns, llm, pipe
 
@@ -42,6 +42,14 @@ def main():
     parser = argparse.ArgumentParser(
         description="DNS Generative Storage — file storage + AI pipeline over DNS",
         formatter_class=argparse.RawTextHelpFormatter
+    )
+    parser.add_argument(
+        "--timeout", type=int, default=120, metavar="SEC",
+        help="Ollama request timeout in seconds (default: 120)"
+    )
+    parser.add_argument(
+        "--no-timeout", action="store_true",
+        help="Disable timeout entirely — wait as long as needed"
     )
     sub = parser.add_subparsers(dest="cmd", required=True)
 
@@ -103,7 +111,8 @@ def main():
     args = parser.parse_args()
 
     cfg = load_config()
-    dns, llm, pipe = build_services(cfg)
+    timeout = None if args.no_timeout else args.timeout
+    dns, llm, pipe = build_services(cfg, timeout=timeout)
 
     if args.model if hasattr(args, "model") and args.model else False:
         llm.model = args.model
