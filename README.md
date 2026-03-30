@@ -305,6 +305,12 @@ The results are **very surprising**: **100% determinism** (both raw output and e
 
 *Every prompt produced exactly one unique hash across the 5 consecutive runs.*
 
+![Phase 1 - Full test suite](images/capture1.png)
+
+![Detail - T8 Conway's Game of Life](images/capture2.png)
+
+![Determinism summary table](images/capture3.png)
+
 ## Contributing
 
 Contributions especially welcome for:
