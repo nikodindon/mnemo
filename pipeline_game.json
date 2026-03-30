@@ -1,0 +1,33 @@
+{
+  "name": "python_game_pipeline",
+  "description": "3-stage pipeline: generate engine → generate assets → assemble game",
+  "stages": [
+    {
+      "name": "game_engine",
+      "model": "mistral:7b",
+      "prompt": "Write a Python class 'GameEngine' with: a 10x10 grid, a player at position (0,0), methods move_up(), move_down(), move_left(), move_right() that update position (clamped to grid), and a display() method that prints the grid with 'P' at player position and '.' elsewhere. No explanation. Only code.",
+      "inject_previous": false,
+      "expected_sha": null,
+      "notes": "Stage 1: core engine"
+    },
+    {
+      "name": "game_items",
+      "model": "mistral:7b",
+      "prompt": "Extend the following GameEngine class to add: a list of 5 random items placed on the grid (represented by 'I'), a method collect_item() that removes the item if the player is on it and increments a score counter, and update display() to show items and score. No explanation. Only code.",
+      "input_from": "game_engine",
+      "inject_previous": false,
+      "expected_sha": null,
+      "notes": "Stage 2: inject engine output as context"
+    },
+    {
+      "name": "game_final",
+      "model": "mistral:7b",
+      "prompt": "Given the following game code, write a complete runnable main() function that: creates a GameEngine, runs a demo sequence of moves (up, right, right, down, left), calls collect_item() each step, and prints the final score. Make it a complete self-contained script. No explanation. Only code.",
+      "input_from": "game_items",
+      "inject_previous": false,
+      "execute": false,
+      "expected_sha": null,
+      "notes": "Stage 3: assemble final runnable program"
+    }
+  ]
+}

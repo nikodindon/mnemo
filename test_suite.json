@@ -1,0 +1,53 @@
+{
+  "models": ["mistral:7b"],
+  "prompts": [
+    {
+      "name": "T1_trivial_loop",
+      "prompt": "Write a Python script that prints numbers from 1 to 100, one per line. No explanation. Only code.",
+      "expected_difficulty": "trivial",
+      "notes": "Baseline — should be 100% deterministic"
+    },
+    {
+      "name": "T2_fibonacci",
+      "prompt": "Write a Python function that returns the first 20 Fibonacci numbers as a list, then prints them. No explanation. Only code.",
+      "expected_difficulty": "easy",
+      "notes": "Simple algorithm, should be deterministic"
+    },
+    {
+      "name": "T3_caesar_cipher",
+      "prompt": "Write a Python script implementing Caesar cipher with shift=13 (ROT13). Include encrypt and decrypt functions. Test with the string 'Hello World'. No explanation. Only code.",
+      "expected_difficulty": "medium",
+      "notes": "More structure, tests if algorithmic choices vary"
+    },
+    {
+      "name": "T4_sorting_algo",
+      "prompt": "Write a Python implementation of merge sort. Include a test with the list [5, 2, 8, 1, 9, 3]. Print the sorted result. No explanation. Only code.",
+      "expected_difficulty": "medium",
+      "notes": "Classic algorithm — may have style variations"
+    },
+    {
+      "name": "T5_class_design",
+      "prompt": "Write a Python class 'BankAccount' with methods: deposit(amount), withdraw(amount), balance(). Constructor takes owner name and initial balance=0. Add a __str__ method. No explanation. Only code.",
+      "expected_difficulty": "hard",
+      "notes": "OOP design — naming and structure likely to vary"
+    },
+    {
+      "name": "T6_regex_parser",
+      "prompt": "Write a Python script that uses regex to extract all email addresses from this text: 'Contact us at admin@example.com or support@test.org for help. Invalid: not-an-email'. Print each email on a line. No explanation. Only code.",
+      "expected_difficulty": "medium",
+      "notes": "Regex patterns may differ slightly"
+    },
+    {
+      "name": "T7_api_client",
+      "prompt": "Write a Python script that fetches the JSON from https://jsonplaceholder.typicode.com/todos/1 using the requests library and prints the title field. No explanation. Only code.",
+      "expected_difficulty": "easy",
+      "notes": "External dependency, should be stable"
+    },
+    {
+      "name": "T8_game_of_life",
+      "prompt": "Write a Python implementation of Conway's Game of Life for a 10x10 grid. Initialize with a glider pattern. Run 5 steps and print each grid state. No explanation. Only code.",
+      "expected_difficulty": "very_hard",
+      "notes": "Complex — high chance of variation. Key stress test."
+    }
+  ]
+}

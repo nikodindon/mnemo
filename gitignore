@@ -1,0 +1,32 @@
+# Secrets — NEVER commit these
+cloudflareapi.txt
+config.json
+*.key
+*.token
+*.secret
+
+# Generated outputs
+reconstructed_*
+generated.py
+generated_*.py
+/results/*.json
+
+# Keep results directory but not its contents
+results/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
