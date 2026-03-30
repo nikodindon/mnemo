@@ -18,7 +18,7 @@ Discovering that project sparked two questions: *how constrained is DNS really a
 
 The answer that emerged: instead of fighting the ~500 KB ceiling by packing more data in, sidestep it entirely. Store not the content, but the *intent*. Let a local LLM reconstruct the content on demand. The DNS record becomes a seed. The model becomes the decompressor.
 
-That leap, from "DNS as a weird hard drive" to "DNS as a generative filesystem", is what dnsforge explores. So: thank you doom-over-dns, for making a constrained space feel like an invitation.
+That leap, from "DNS as a weird hard drive" to "DNS as a generative filesystem", is what mnemo explores. So: thank you doom-over-dns, for making a constrained space feel like an invitation.
 
 ---
 
