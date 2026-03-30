@@ -2,17 +2,29 @@
 
 > *Store the intention, not the content.*
 
-**Mnemo** uses the DNS protocol — the internet's distributed phone book — as a generative filesystem. Instead of storing files, it stores the *compressed description* of how to recreate them, using a local LLM as the reconstruction engine.
+**Mnemo** uses the DNS protocol, the internet's distributed phone book, as a generative filesystem. Instead of storing files, it stores the *compressed description* of how to recreate them, using a local LLM as the reconstruction engine.
 
 It's part infrastructure hack, part compression theory experiment, part philosophical provocation.
 
-Named after Mnemosyne, the Greek goddess of memory — because what Mnemo stores isn't data, it's *the memory of how to produce data*.
+Named after Mnemosyne, the Greek goddess of memory, because what Mnemo stores isn't data, it's *the memory of how to produce data*.
+
+---
+
+## Inspiration and credit
+
+This project owes its existence to **[doom-over-dns](https://github.com/resumex/doom-over-dns)** by [@resumex](https://github.com/resumex), who had the beautiful and slightly unhinged idea of running DOOM through DNS TXT records.
+
+Discovering that project sparked two questions: *how constrained is DNS really as a storage medium?* And then, *what if the constraint itself was the feature?*
+
+The answer that emerged: instead of fighting the ~500 KB ceiling by packing more data in, sidestep it entirely. Store not the content, but the *intent*. Let a local LLM reconstruct the content on demand. The DNS record becomes a seed. The model becomes the decompressor.
+
+That leap, from "DNS as a weird hard drive" to "DNS as a generative filesystem", is what dnsforge explores. So: thank you doom-over-dns, for making a constrained space feel like an invitation.
 
 ---
 
 ## The idea in one sentence
 
-> What if you could fit an entire program into a DNS TXT record, and reconstruct it on demand — without ever storing a single byte of the actual output?
+> What if you could fit an entire program into a DNS TXT record, and reconstruct it on demand, without ever storing a single byte of the actual output?
 
 ---
 
@@ -20,7 +32,7 @@ Named after Mnemosyne, the Greek goddess of memory — because what Mnemo stores
 
 ### DNS as a storage medium
 
-DNS was never designed to store files. A Cloudflare zone caps out around 500–600 KB of TXT records. That's roughly the size of a GameBoy ROM — which is exactly where this project started (yes, you can store *Super Mario Land* in DNS records using base64-encoded, zlib-compressed chunks).
+DNS was never designed to store files. A Cloudflare zone caps out around 500–600 KB of TXT records. That's roughly the size of a GameBoy ROM, which is exactly where this project started (yes, you can store *Super Mario Land* in DNS records using base64-encoded, zlib-compressed chunks).
 
 The obvious move: compression + base64 + chunking. It works. But you still hit a ceiling. And that ceiling is the interesting constraint.
 
@@ -28,15 +40,15 @@ The obvious move: compression + base64 + chunking. It works. But you still hit a
 
 In algorithmic information theory, the **Kolmogorov complexity** `K(x)` of a string `x` is defined as the length of the shortest program that outputs `x` on a universal Turing machine. It's the theoretical minimum description length of any piece of data.
 
-A string like `AAAA...AAAA` (one million A's) has very low Kolmogorov complexity — a three-word description suffices. A truly random sequence has Kolmogorov complexity close to its own length — there is no shorter description than the sequence itself.
+A string like `AAAA...AAAA` (one million A's) has very low Kolmogorov complexity, a three-word description suffices. A truly random sequence has Kolmogorov complexity close to its own length, there is no shorter description than the sequence itself.
 
-Most programs humans write sit somewhere in between — they are *structured*, *intentional*, *patterned*. The source code of a sorting algorithm, a game engine, a parser — these have far lower Kolmogorov complexity than their byte count suggests, because the algorithm itself encodes meaning that any informed reader (or model) can reconstruct from a much shorter cue.
+Most programs humans write sit somewhere in between, they are *structured*, *intentional*, *patterned*. The source code of a sorting algorithm, a game engine, a parser, these have far lower Kolmogorov complexity than their byte count suggests, because the algorithm itself encodes meaning that any informed reader (or model) can reconstruct from a much shorter cue.
 
-**Mnemo exploits this gap.** Instead of storing a file, we store a prompt that describes it precisely enough for a deterministic LLM to regenerate it exactly. The DNS record holds a few hundred bytes of compressed intent. The LLM reconstructs potentially kilobytes or megabytes of structured output — code, data, binaries.
+**Mnemo exploits this gap.** Instead of storing a file, we store a prompt that describes it precisely enough for a deterministic LLM to regenerate it exactly. The DNS record holds a few hundred bytes of compressed intent. The LLM reconstructs potentially kilobytes or megabytes of structured output , code, data, binaries.
 
 The LLM acts as a **learned approximation of a universal decompressor**: trained on the entire corpus of human-written code and text, it can expand a terse description into a full implementation. The prompt is the compressed form. The output is the decompressed form. DNS is just the storage layer.
 
-This is not Kolmogorov compression in the strict theoretical sense — the LLM is not a universal Turing machine, and the output is not always perfectly reproducible. That tension is exactly what makes this worth exploring empirically.
+This is not Kolmogorov compression in the strict theoretical sense, the LLM is not a universal Turing machine, and the output is not always perfectly reproducible, and that tension is exactly what makes this worth exploring empirically.
 
 > *We are asking: what is the practical Kolmogorov complexity of human-authored programs, as measured by a 7B-parameter language model at temperature=0?*
 
@@ -94,14 +106,14 @@ The real power: chain prompts where each stage feeds into the next. Generate a g
 }
 ```
 
-The entire pipeline definition — all three stages — fits in DNS. The code it generates never needs to be stored anywhere.
+The entire pipeline definition , all three stages, fits in DNS. The code it generates never needs to be stored anywhere.
 
 ---
 
 ## Architecture
 
 ```
-Mnemo/
+mnemo/
 ├── main.py             CLI entry point
 ├── dns_layer.py        Cloudflare DNS operations (chunks, index, compression)
 ├── llm_layer.py        Ollama interface (generation, determinism testing)
@@ -139,7 +151,7 @@ Create `config.json` in the project root:
 }
 ```
 
-`cloudflareapi.txt` — your Cloudflare API token, one line, no spaces. **Never commit this.**
+`cloudflareapi.txt`, your Cloudflare API token, one line, no spaces. **Never commit this.**
 
 ### Basic usage
 
@@ -244,13 +256,13 @@ python main.py test-determinism \
 
 The most reproducible prompts share these traits:
 
-- **Unique obvious solution** — no algorithmic choice left to the model
-- **`No explanation. Only code.`** at the end — eliminates preamble variance
-- **Precise numeric constraints** — exact sizes, ranges, test inputs
-- **Output format specified** — "print as JSON", "one result per line"
-- **Test data embedded in the prompt** — don't let the model choose its own examples
+- **Unique obvious solution**: no algorithmic choice left to the model
+- **`No explanation. Only code.`** at the end, eliminates preamble variance
+- **Precise numeric constraints**: exact sizes, ranges, test inputs
+- **Output format specified**, "print as JSON", "one result per line"
+- **Test data embedded in the prompt**, don't let the model choose its own examples
 
-The less creative freedom, the more deterministic the output. This is not a bug — it's the design principle.
+The less creative freedom, the more deterministic the output. This is not a bug, it's the design principle.
 
 ---
 
@@ -273,7 +285,7 @@ The less creative freedom, the more deterministic the output. This is not a bug 
 
 Mnemo is fundamentally asking: *what is the minimum description length of a program, as understood by a language model?*
 
-Not in the abstract Kolmogorov sense — but empirically, with a specific model, specific parameters, and a specific prompt format. If `mistral:7b` at `temperature=0, seed=42` deterministically maps a 200-byte prompt to a 4 KB Python program, then that prompt *is* the program, for all practical purposes.
+Not in the abstract Kolmogorov sense, but empirically, with a specific model, specific parameters, and a specific prompt format. If `mistral:7b` at `temperature=0, seed=42` deterministically maps a 200-byte prompt to a 4 KB Python program, then that prompt *is* the program, for all practical purposes.
 
 The LLM is a **learned compression dictionary** built from human intent. DNS just happens to be a convenient, globally distributed, zero-infrastructure place to store the keys.
 
