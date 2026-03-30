@@ -296,14 +296,8 @@ What this project wants to find out: how deep does that dictionary go?
 
 ## Results
 
-Results from test runs will be published in `results/` as the protocol is executed. First results incoming.
+Results from test runs will be published in `results/` as the protocol is executed. Results incoming.
 
-### First results – Phase 1 Determinism
-
-
-## Results
-
-Test results are published in the [`results/`](results/) directory.
 
 ### Phase 1 — Determinism Baseline (mistral:7b, 5 runs per prompt)
 
