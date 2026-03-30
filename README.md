@@ -33,7 +33,7 @@ Like Adam I'm using llms (local , claude , gpt , grok) for this project, I love 
 
 ### DNS as a storage medium
 
-DNS was never designed to store files. A Cloudflare zone caps out around 300-500 KB of TXT records. That's roughly the size of a big GameBoy ROM like *Legend of Zelda, The - Link's Awakening* for example
+DNS was never designed to store files. A Cloudflare zone caps out around 300-500 KB of TXT records. That's roughly the size of a big GameBoy ROM like *Legend of Zelda, The - Link's Awakening* for example/
 
 The obvious move: compression + base64 + chunking. It works. But you still hit a ceiling. And that ceiling is the interesting constraint.
 
@@ -298,7 +298,25 @@ What this project wants to find out: how deep does that dictionary go?
 
 Results from test runs will be published in `results/` as the protocol is executed. First results incoming.
 
----
+### First results – Phase 1 Determinism
+
+very surprising
+
+## Results
+
+Test results are published in the [`results/`](results/) directory.
+
+### Phase 1 — Determinism Baseline (mistral:7b, 5 runs per prompt)
+
+The results are **very surprising**: **100% determinism** (both raw output and extracted code) across all 8 prompts — including the most complex one, Conway’s Game of Life!
+
+(images/capture1.png)
+
+(images/capture1.png)
+
+(images/capture3.png)
+
+*Every prompt produced exactly one unique hash across the 5 consecutive runs.*
 
 ## Contributing
 
