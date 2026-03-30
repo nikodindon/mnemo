@@ -301,15 +301,7 @@ Results from test runs will be published in `results/` as the protocol is execut
 
 ### Phase 1 — Determinism Baseline (mistral:7b, 5 runs per prompt)
 
-The results are **very surprising**: **100% determinism** (both raw output and extracted code) across all 8 prompts — including the most complex one, Conway’s Game of Life!
 
-*Every prompt produced exactly one unique hash across the 5 consecutive runs.*
-
-![Phase 1 - Full test suite](images/capture1.png)
-
-![Detail - T8 Conway's Game of Life](images/capture2.png)
-
-![Determinism summary table](images/capture3.png)
 
 ## Contributing
 
