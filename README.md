@@ -306,9 +306,9 @@ The less creative freedom, the more deterministic the output. This is not a bug,
 
 | | Laptop (primary) | Desktop (secondary) |
 |---|---|---|
-| CPU | AMD Ryzen 5 5500U | AMD (unknown) |
+| CPU | AMD Ryzen 5 5500U | AMD Ryzen 5 1600 AF |
 | GPU | integrated only | NVIDIA GTX 1650 Super 4 GB |
-| RAM | — | 32 GB |
+| RAM | 20 GB | 32 GB |
 | OS | Windows 11 | Windows 11 |
 | Python | 3.13.2 | 3.14.3 |
 | Ollama | 0.18.3 | 0.18.3 |
