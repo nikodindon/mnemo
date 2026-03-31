@@ -11,7 +11,8 @@ import os
 import sys
 
 from dns_layer import DNSStorage
-from llm_layer import LLMRunner
+from llm_layer import LLMRunner, extract_code
+from executor import Executor, FunctionalHasher
 from pipeline import Pipeline
 
 # ─── Config ──────────────────────────────────────────────────────────────────
@@ -108,6 +109,9 @@ def main():
     up2.add_argument("path")
     up2.add_argument("--gzip", action="store_true")
 
+    # ── Functional hashing (new) ──────────────────────────────────────────────
+    _add_functional_cmds(sub)
+
     args = parser.parse_args()
 
     cfg = load_config()
@@ -179,6 +183,81 @@ def main():
         compression = "gzip" if args.gzip else "zlib"
         dns.upload_file(args.path, compression=compression)
 
+    elif args.cmd == "functional-hash":
+        model = args.model or llm.model
+        exec_timeout = args.exec_timeout
+        check_stability = not args.no_stability_check
+
+        print(f"\n🔩 Functional hash — model={model}")
+        print(f"   Prompt: {args.prompt[:80]}{'...' if len(args.prompt)>80 else ''}")
+
+        gen = llm.generate(args.prompt, model=model)
+        code = gen.extracted_code or gen.raw_output
+        if not code:
+            print("❌ No code extracted from LLM output")
+            sys.exit(1)
+
+        executor = Executor(timeout=exec_timeout, check_stability=check_stability)
+        hasher   = FunctionalHasher(executor=executor)
+        report   = hasher.hash_prompt_result(code, verbose=True)
+
+        print(f"\n📋 Summary:")
+        print(f"  SHA source : {report['sha256_source']}")
+        print(f"  SHA output : {report['sha256_output'] or '(unavailable)'}")
+        print(f"  Stable     : {report['stable']}")
+
+    elif args.cmd == "functional-suite":
+        model = args.model or llm.model
+        exec_timeout = args.exec_timeout
+
+        with open(args.path) as f:
+            suite = json.load(f)
+
+        executor = Executor(timeout=exec_timeout, check_stability=True)
+        hasher   = FunctionalHasher(executor=executor)
+
+        samples = []
+        for p in suite["prompts"]:
+            prompt_text = p["prompt"]
+            name        = p["name"]
+            print(f"\n⚙  Generating code for {name}...")
+            gen  = llm.generate(prompt_text, model=model)
+            code = gen.extracted_code or gen.raw_output
+            samples.append((name, code))
+
+        reports = hasher.test_suite(samples, verbose=False)
+
+        if args.report:
+            with open(args.report, "w", encoding="utf-8") as f:
+                json.dump(reports, f, indent=2)
+            print(f"\n📄 Report saved to {args.report}")
+
 
 if __name__ == "__main__":
     main()
+
+def _add_functional_cmds(sub):
+    # ── functional-hash : generate code + hash its output ────────────────────
+    fh = sub.add_parser(
+        "functional-hash",
+        help="Generate code from prompt, execute it, hash the OUTPUT (cross-machine safe)"
+    )
+    fh.add_argument("prompt", help="Prompt string to generate code from")
+    fh.add_argument("--model", default=None)
+    fh.add_argument("--exec-timeout", type=int, default=10,
+                    help="Seconds before killing the generated code (default: 10)")
+    fh.add_argument("--no-stability-check", action="store_true",
+                    help="Skip the second execution stability check")
+
+    # ── functional-suite : run test_suite.json with functional hashing ────────
+    fs = sub.add_parser(
+        "functional-suite",
+        help="Run test suite with functional hashing (generate + execute + hash output)"
+    )
+    fs.add_argument("path", help="Path to test suite .json")
+    fs.add_argument("--model", default=None)
+    fs.add_argument("--exec-timeout", type=int, default=10)
+    fs.add_argument("--report", default=None, help="Save JSON report")
+
+    return fh, fs
+
