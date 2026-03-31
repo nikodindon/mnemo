@@ -413,7 +413,7 @@ What this project wants to find out: how deep does that dictionary go?
 
 *Intellectual property reflexion
 
-At the heart of the emerging tension between large language models and intellectual property lies a fundamental asymmetry: copyright law has historically protected the concrete expression of an idea — the long-form source code, the specific implementation, the tangible artifact — while treating the underlying idea or functional specification as unprotectable.
+At the heart of the emerging tension between large language models and intellectual property lies a fundamental asymmetry: copyright law has historically protected the concrete expression of an idea , the long-form source code, the specific implementation, the tangible artifact while treating the underlying idea or functional specification as unprotectable.
 
 A prompt, even an extremely detailed multi-stage pipeline designed to reliably reconstruct a complex program, remains under current legal doctrine (e.g., U.S. Copyright Office Report, Part 2, January 2025) an instruction or a semantic specification, akin to a recipe or a clean-room design. As such, it generally enjoys limited or no copyright protection in itself.
 
@@ -423,9 +423,11 @@ While perfect cross-machine determinism remains challenging, the reconstruction 
 
 This creates a provocative gray zone: does publishing such a prompt constitute contributory infringement if it enables the reliable regeneration of GPL, AGPL, or proprietary code without ever distributing the code itself? Or does it legitimately remain in the realm of unprotected ideas and functional specifications?
 
-More philosophically, it forces us to reconsider what is truly being protected — the tangible output shaped by human creativity, or the minimal semantic seed capable of reliably reproducing it under the right computational conditions.
+More philosophically, it forces us to reconsider what is truly being protected , the tangible output shaped by human creativity, or the minimal semantic seed capable of reliably reproducing it under the right computational conditions.
 
-In the age of learned compression and semantic decompression, the traditional boundary between “idea” and “expression” may no longer be a bright line, but a gradient — one that increasingly depends not only on the prompt itself, but on the generative capabilities of the models that interpret it.
+In the age of learned compression and semantic decompression, the traditional boundary between “idea” and “expression” may no longer be a bright line, but a gradient, one that increasingly depends not only on the prompt itself, but on the generative capabilities of the models that interpret it.
+
+
 ---
 
 ## Contributing
