@@ -350,7 +350,7 @@ The initial protocol ran all 5 runs inside the same Python process without unloa
 
 #### Finding 4 — Cross-machine determinism breaks completely
 
-Running the same suite on two machines — one CPU-only laptop, one GPU desktop — produced **0/5 matching hashes** across all tested prompts, including the simplest ones.
+Running the same suite on two machines : one CPU-only laptop, one GPU desktop which produced **0/5 matching hashes** across all tested prompts, including the simplest ones.
 
 ```
 T1_trivial     ❌  Laptop SHA: 9235b5405a346071…   Desktop SHA: 980efe462aead53d…
